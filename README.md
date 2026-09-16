@@ -26,21 +26,15 @@ A small project built to understand the fundamentals of backend web development.
 
 ### 🏠 Home Page
 
-<!-- Replace this path after adding your screenshot -->
-
-![Home Page](./screenshots/home.png)
+<img width="1903" height="990" alt="1" src="https://github.com/user-attachments/assets/0eec31a7-588c-40fa-bca3-ee9d9fefb531" />
 
 ### 📖 Note View
 
-<!-- Replace this path after adding your screenshot -->
-
-![Note View](./screenshots/note-view.png)
+<img width="1898" height="982" alt="2" src="https://github.com/user-attachments/assets/d838c78e-15a9-4115-aa82-22dc60baa42f" />
 
 ### ✏️ Edit Note
 
-<!-- Replace this path after adding your screenshot -->
-
-![Edit Note](./screenshots/edit-note.png)
+<img width="1900" height="982" alt="3" src="https://github.com/user-attachments/assets/be31ad8b-f093-422a-9b7e-29c6dace5783" />
 
 ---
 
