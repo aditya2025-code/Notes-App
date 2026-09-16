@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rename - <%= filename %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: 'Courier Prime', monospace; }
+        .font-display { font-family: 'Special Elite', 'Courier Prime', monospace; }
+    </style>
+</head>
+
+<body>
+    <div class="main w-full min-h-screen bg-[#3B2A1E] p-6 md:p-10"
+        style="background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px, transparent 1px, transparent 80px), repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 80px);">
+
+        <a class="inline-block mb-8 text-[#C9B79A] hover:text-[#F1E6C9] text-xs tracking-widest" href="/">&laquo; BACK TO CATALOG</a>
+
+        <div class="form flex justify-center">
+            <form action="/edit" method="post"
+                class="w-full max-w-md bg-[#F1E6C9] text-[#2A2118] rounded-sm border border-[#c9bb92] shadow-[6px_6px_0_rgba(0,0,0,0.35)] p-6 md:p-8 rotate-1">
+
+                <p class="text-[11px] tracking-[0.2em] text-[#8a3a34] font-bold mb-5">RE-LABEL CARD</p>
+
+                <label class="block text-[11px] tracking-wide text-[#6B5D4A] mb-1">PREVIOUS TITLE</label>
+                <input name="Previous"
+                    class="font-display block w-full rounded-none outline-none bg-[#e7dcbd] border-0 border-b-2 border-dashed border-[#a89a7d] text-[#8a7a5a] px-2 py-2 mb-5 cursor-not-allowed"
+                    type="text" placeholder="Previous title" value="<%= filename %>" readonly>
+
+                <label class="block text-[11px] tracking-wide text-[#6B5D4A] mb-1">NEW TITLE</label>
+                <input name="New"
+                    class="font-display block w-full rounded-none outline-none bg-transparent border-0 border-b-2 border-[#8a7a54] focus:border-[#8a3a34] text-[#2A2118] px-2 py-2 mb-6 placeholder:text-[#a89a7d]"
+                    type="text" placeholder="New title (end with .txt)">
+
+                <input class="cursor-pointer bg-[#B8934A] hover:bg-[#a17d3c] active:translate-y-[1px] transition-all px-6 py-2 rounded-sm text-[#2A2118] text-sm tracking-wide shadow-[3px_3px_0_rgba(0,0,0,0.35)] active:shadow-[1px_1px_0_rgba(0,0,0,0.35)] font-bold"
+                    type="submit" value="Update Name">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

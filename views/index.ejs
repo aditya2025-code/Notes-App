@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon1.svg">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: 'Courier Prime', monospace; }
+        .font-display { font-family: 'Special Elite', 'Courier Prime', monospace; }
+    </style>
+</head>
+
+<body>
+    <div class="main w-full min-h-screen bg-[#3B2A1E] relative"
+        style="background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px, transparent 1px, transparent 80px), repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 80px);">
+
+        <header class="pt-12 pb-8 text-center px-6">
+            <span class="inline-block bg-[#B8934A] text-[#2A2118] px-3 py-1 text-[11px] tracking-[0.2em] rounded-sm shadow-[2px_2px_0_rgba(0,0,0,0.4)] mb-5">DRAWER No. 12</span>
+            <h1 class="font-display text-4xl md:text-6xl text-[#F1E6C9]">Card Catalog</h1>
+            <p class="text-[#C9B79A] mt-3 text-sm tracking-wide">— a filing system for things worth remembering —</p>
+        </header>
+
+        <div class="form px-6 pb-4 flex justify-center">
+            <form action="/create" method="post"
+                class="w-full max-w-xl bg-[#F1E6C9] text-[#2A2118] rounded-sm border border-[#c9bb92] shadow-[6px_6px_0_rgba(0,0,0,0.35)] p-6 md:p-8 -rotate-1">
+                <p class="text-[11px] tracking-[0.2em] text-[#8a3a34] font-bold mb-5">NEW CARD</p>
+
+                <label class="block text-[11px] tracking-wide text-[#6B5D4A] mb-1">TITLE</label>
+                <input name="title"
+                    class="font-display block text-[#2A2118] w-full rounded-none outline-none bg-transparent border-0 border-b-2 border-[#8a7a54] focus:border-[#8a3a34] px-1 py-2 text-lg mb-5 placeholder:text-[#a89a7d]"
+                    type="text" placeholder="Untitled entry">
+
+                <label class="block text-[11px] tracking-wide text-[#6B5D4A] mb-1">DETAILS</label>
+                <textarea
+                    class="block text-[#2A2118] w-full h-28 rounded-none outline-none mt-0 resize-none bg-transparent border-0 border-b-2 border-[#8a7a54] focus:border-[#8a3a34] px-1 py-2 mb-6 placeholder:text-[#a89a7d]"
+                    name="details" placeholder="Write what you need to remember..." required></textarea>
+
+                <input class="cursor-pointer bg-[#8a3a34] hover:bg-[#762e29] active:translate-y-[1px] transition-all px-6 py-2 rounded-sm text-[#F1E6C9] text-sm tracking-wide shadow-[3px_3px_0_rgba(0,0,0,0.35)] active:shadow-[1px_1px_0_rgba(0,0,0,0.35)]"
+                    type="submit" value="File This Card">
+            </form>
+        </div>
+
+        <div class="tasks grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 md:p-10 max-w-5xl mx-auto">
+            <% if(files.length> 0){ %>
+                <% files.forEach(function(val, i){ %>
+                 <div class="task relative bg-[#F1E6C9] text-[#2A2118] rounded-sm border border-[#c9bb92] shadow-[5px_5px_0_rgba(0,0,0,0.3)] hover:shadow-[7px_7px_0_rgba(0,0,0,0.35)] odd:-rotate-1 even:rotate-1 hover:rotate-0 transition-all duration-200 min-w-72 px-5 pt-8 pb-5">
+                    <span class="absolute -top-3 left-4 bg-[#B8934A] text-[#2A2118] text-[10px] px-2 py-0.5 rounded-sm tracking-wide shadow-[2px_2px_0_rgba(0,0,0,0.3)]">FILE <%= String(i + 1).padStart(3, '0') %></span>
+                    <h1 class="font-display text-2xl tracking-tighter truncate"><%= val %></h1>
+                    <div class="flex w-full justify-between items-center mt-4 pt-3 border-t border-dashed border-[#8a7a54] text-xs tracking-wide">
+                        <a class="text-[#3F5D4E] hover:text-[#2c463a] font-bold inline-block" href="./file/<%= val %>">OPEN FILE</a>
+                        <a class="text-[#6B5D4A] hover:text-[#2A2118]" href="/edit/<%= val %>">RE-LABEL</a>
+                    </div>
+                </div>
+                <% }) %>
+            <% } else { %>
+                <div class="col-span-full text-center py-16 text-[#C9B79A]">
+                    <p class="font-display text-2xl mb-2">The drawer is empty.</p>
+                    <p class="text-sm">No cards on file yet — add your first note above.</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <script src="/JavaScripts/script.js"></script>
+</body>
+
+</html>
