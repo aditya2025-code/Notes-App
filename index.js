@@ -39,4 +39,7 @@ app.post('/create', function (req, res) {
 
 
 
-module.exports = app;
+app.listen(process.env.PORT || 6969, function () {
+    console.log("It's running");
+
+})
